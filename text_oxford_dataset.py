@@ -145,6 +145,10 @@ for i in range(7):
     num_imgs = nums_imgs[i]
     short = shorts[i]
 
+    print("***********")
+    print(seq)
+    print("***********")
+
     if seq == 'corridor' or seq == 'model_house':
         anfang = int(0)
     else:
@@ -175,9 +179,9 @@ for i in range(7):
     rot_1p2l_3Q3 = []
     tran_1p2l_3Q3 = []
 
-    print(seq)
+    #print(seq)
     for img_id in range(anfang, num_imgs):
-        print(img_id)
+        print("Image " + str(img_id))
 
         #load matches
         #0 is present, so they are indexing from zero
@@ -267,12 +271,12 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
+        #print(res[1]["refinements"])
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_2p1l_our.append(end-start)
         rot_2p1l_our.append(rot_err)
         tran_2p1l_our.append(tr_err)
@@ -284,13 +288,13 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl_3Q3(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
+        #print(res[1]["refinements"])
         #print(res)
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_2p1l_3Q3.append(end-start)
         rot_2p1l_3Q3.append(rot_err)
         tran_2p1l_3Q3.append(tr_err)
@@ -302,13 +306,13 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl_bouaziz(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
+        #print(res[1]["refinements"])
         #print(res)
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_2p1l_bouaziz.append(end-start)
         rot_2p1l_bouaziz.append(rot_err)
         tran_2p1l_bouaziz.append(tr_err)
@@ -319,13 +323,13 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl_bouaziz_lu(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
-        print(res)
+        #print(res[1]["refinements"])
+        #print(res)
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_2p1l_bouaziz_lu.append(end-start)
         rot_2p1l_bouaziz_lu.append(rot_err)
         tran_2p1l_bouaziz_lu.append(tr_err)
@@ -336,13 +340,13 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl_1P2L(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
-        print(res)
+        #print(res[1]["refinements"])
+        #print(res)
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_1p2l_our.append(end-start)
         rot_1p2l_our.append(rot_err)
         tran_1p2l_our.append(tr_err)
@@ -354,23 +358,25 @@ for i in range(7):
         res = poselib.estimate_absolute_pose_pnpl_1P2L_3Q3(pt_2D, pt_3D, x1_2D, x2_2D, X1_3D, X2_3D, camera, ransac_opt)
         end = time.time()
         print(end - start)
-        print(res[1]["refinements"])
+        #print(res[1]["refinements"])
         R_est = res[0].R
         t_est = res[0].t
         rot_err, tr_err = evaluate_R_t(R, t, R_est, t_est)
-        print(str(rot_err) + " " + str(tr_err))
-        print()
+        #print(str(rot_err) + " " + str(tr_err))
+        #print()
         times_1p2l_3Q3.append(end-start)
         rot_1p2l_3Q3.append(rot_err)
         tran_1p2l_3Q3.append(tr_err)
 
+        print()
+
         #exit()
 
+    print()
+    print()
     print("* * * * * * * * * * * * * * * ")
     print("* R * E * S * U * L * T * S * ")
     print("* * * * * * * * * * * * * * * ")
-    print(seq)
-    print()
 
     print("* T * I * M * E *")
     print("OUR 2P1L")
@@ -475,25 +481,8 @@ for i in range(7):
     print(statistics.mean(tran_1p2l_3Q3))
     print()
 
-    print()
-
-
-    print()
-    print()
-
-exit()
-
-"""
-inl_mask = check_points(pt_2D,pt_3D,res[0].R,res[0].t,K_simp,3.0)
-print(inl_mask)
-print(np.sum(np.array(inl_mask)))
-
-ln_inl_mask = check_lines(x1_2D,x2_2D,X1_3D,X2_3D,res[0].R,res[0].t,K_simp,3.0)
-print(ln_inl_mask)
-print(np.sum(np.array(ln_inl_mask)))
 print()
-"""
 
-exit()
+
 
 
