@@ -1,0 +1,8 @@
+                         3D reconstruction
+                         -----------------
+
+Files:
+  ###.P              3x4 camera projection matrix, one per image.
+  p3d                3D points. ASCII x y z coordinates, one per line
+  l3d                3D line segments. ASCII x0 y0 z0 x1 y1 z1 one per line
+  arec.wrl           VRML 1.0 file with points, lines and cameras

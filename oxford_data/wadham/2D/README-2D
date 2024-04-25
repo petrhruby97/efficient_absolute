@@ -1,0 +1,33 @@
+                         2D geometry and matches
+                         -----------------------
+
+Files:
+  ###.corners        Affine multiscale Harris corners. ASCII x y coordinates, one per line
+  ###.lines          Line segments. ASCII x0 y0 x1 y1, one per line
+
+  nview-corners      Corner matches
+  nview-lines        Line matches
+
+  The image coordinate frame (to which files ###.corners and ###.lines refer)
+  is as follows: the top-left image pixel has coordinates (0,0), first axis
+  aims to the right, second axis aims down.
+
+
+Match format: (e.g. nview-corners)
+
+  Each row of the file corresponds to one 3d feature (these features are in files 
+  p3d and l3d) and contains #images integers (one per view) indicating
+  which corner is the image of the 3D point in the associated
+  view. Views in which the point does not appear are marked with an asterisk.
+
+  For example the line
+        134  *    132  131  *    *    *    *    *    *    *    *    
+  indicates that this 3D point :
+        corresponds to corner 134 in view 1, 
+        has no match in view 2,
+        corresponds to corner 132 in view 3, 
+        corresponds to corner 131 in view 4,
+        and has no matches through the rest of the sequence.
+
+  Note that indices of points and lines start from zero, and are indices into
+  the appropriate ".corners" or ".lines" files.

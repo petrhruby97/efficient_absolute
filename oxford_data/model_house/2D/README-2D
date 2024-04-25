@@ -1,0 +1,26 @@
+                         House sequence matches
+                         ----------------------
+
+Files:
+  house.###.corners        Harris corners. ASCII x y coordinates, one per line
+  house.###.lines          Line segments. ASCII x0 y0 x1 y1 blah blah, one per line
+
+  house.nview-corners      Corner matches
+  house.nview-lines        Line matches
+
+Match format: (e.g. nview-corners)
+  Each row of the file corresponds to one 3d feature preimage and contains 11 integers (one
+  per view) indicating which corner is the image of the 3D point in the
+  associated view.  Views in which the point does not appear are marked with an asterisk.
+
+  For example the line
+        134  *    132  131  *    *    *    *    *    *    *    *    
+  indicates that this 3D point :
+        corresponds to corner 134 in view 1, 
+        has no match in view 2,
+        corresponds to corner 132 in view 3, 
+        corresponds to corner 131 in view 4,
+        and has no matches through the rest of the sequence.
+
+  Note that indices of points and lines start from zero, and are indices into
+  the appropriate ".corners" or ".lines" files.

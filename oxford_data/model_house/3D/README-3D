@@ -1,0 +1,7 @@
+                         House sequence reconstruction
+                         -----------------------------
+
+Files:
+  house.###.P              3x4 camera projection matrix, one per image.
+  house.p3d                3D points. ASCII x y z coordinates, one per line
+  house.l3d                3D line segments. ASCII x0 y0 z0 x1 y1 z1 one per line
